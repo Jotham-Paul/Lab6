@@ -1,0 +1,390 @@
+/* ==========================================================================
+   EXTERNAL CSS STYLESHEET
+   Demonstrates:
+   1. Background Image with Overlay & Fixed Parallax
+   2. Varied Text Colors & Contrast Hierarchy
+   3. Multiple Variations of Borders for Text (badges, underlines, quotes, boxes)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Base Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Text Color Palette */
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-accent: #38bdf8;       /* Sky Blue */
+  --text-highlight: #f59e0b;    /* Warm Amber */
+  --text-gold: #facc15;         /* Golden Yellow */
+
+  /* Border Colors */
+  --border-light: rgba(255, 255, 255, 0.25);
+  --border-accent: #38bdf8;
+  --border-highlight: #f59e0b;
+
+  /* Fonts */
+  --font-main: 'Poppins', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   2. Body & Full Background Image Styling
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-main);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  min-height: 100vh;
+  
+  /* REQUIREMENT: Background Image with Semi-transparent Gradient Overlay */
+  background-image: 
+    linear-gradient(135deg, rgba(15, 23, 42, 0.78), rgba(30, 41, 59, 0.88)), 
+    url('images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* --------------------------------------------------------------------------
+   3. Navigation Bar
+   -------------------------------------------------------------------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  /* Border for text element */
+  border-bottom: 2px solid var(--border-accent);
+  padding-bottom: 3px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-accent);
+}
+
+.btn-nav {
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--border-accent);
+  border-radius: 6px;
+  color: var(--text-accent);
+}
+
+.btn-nav:hover {
+  background: var(--border-accent);
+  color: #0f172a;
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero Section
+   -------------------------------------------------------------------------- */
+.hero-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem 1.5rem;
+}
+
+.hero-content {
+  text-align: center;
+  padding: 3rem 1rem 4rem 1rem;
+}
+
+/* REQUIREMENT: Border for Text (Badge / Pill Style) */
+.badge-border {
+  display: inline-block;
+  padding: 0.35rem 1.1rem;
+  border: 1.5px solid var(--border-accent);
+  border-radius: 50px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--text-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+/* REQUIREMENT: Text Colors & Typography Hierarchy */
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.highlight-text {
+  color: var(--text-highlight);
+  font-family: var(--font-serif);
+  font-style: italic;
+  /* Glowing bottom border accent */
+  border-bottom: 3px solid var(--border-highlight);
+  padding-bottom: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Buttons with Borders */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--text-accent);
+  color: #0f172a;
+  border: 2px solid var(--text-accent);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--text-accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-light);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   5. Content Cards & Text Border Variations
+   -------------------------------------------------------------------------- */
+.content-section {
+  margin-top: 3rem;
+}
+
+/* REQUIREMENT: Text Border on Section Title */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 3px solid var(--border-accent);
+  padding-bottom: 0.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.info-card {
+  background: rgba(30, 41, 59, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-accent);
+}
+
+/* Text Tag with Border */
+.card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-gold);
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-heading {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.card-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* REQUIREMENT: Border for Text Stat Box */
+.stat-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--border-light);
+  border-bottom: 1px dashed var(--border-light);
+  padding: 0.5rem 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+/* --------------------------------------------------------------------------
+   6. Blockquote with Accent Border
+   -------------------------------------------------------------------------- */
+.quote-section {
+  margin: 4.5rem 0 3.5rem 0;
+}
+
+/* REQUIREMENT: Text Left Border & Distinct Text Colors */
+.accent-quote {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  /* 5px solid left border for the blockquote text */
+  border-left: 5px solid var(--border-accent);
+  border-radius: 0 10px 10px 0;
+  padding: 1.75rem 2rem;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-highlight);
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Callout / Notice Box with Dashed Border
+   -------------------------------------------------------------------------- */
+/* REQUIREMENT: Full text container framed by dashed border */
+.notice-box {
+  background: rgba(15, 23, 42, 0.8);
+  border: 2px dashed var(--border-highlight);
+  border-radius: 12px;
+  padding: 2.25rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.notice-title {
+  font-size: 1.4rem;
+  color: var(--text-highlight);
+  margin-bottom: 0.5rem;
+}
+
+.notice-text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 650px;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* --------------------------------------------------------------------------
+   8. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(10, 15, 26, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Responsive Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-link {
+    margin: 0 0.5rem;
+  }
+
+  .hero-container {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+  }
+}
+
